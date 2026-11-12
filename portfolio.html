@@ -72,8 +72,8 @@
   .pillnav a{text-decoration:none;font-size:13.5px;font-weight:600;color:var(--muted);padding:8px 15px;border-radius:999px;white-space:nowrap}
   .pillnav a:hover{color:var(--ink)}
   .pillnav a.on{background:#f4f4f1;color:#0a0a0b}
-  .pillnav a.cta{background:#f4f4f1;color:#0a0a0b;font-weight:700}
-  @media(max-width:860px){.pillnav a:not(.on):not(.cta){display:none}.brand .b1{display:none}}
+  .pillnav a.cta{background:#f4f4f1;color:#0a0a0b;font-weight:700}.pillnav a.home{background:var(--gold);color:var(--gold-ink);font-weight:700}.pillnav a.home:hover{color:var(--gold-ink);filter:brightness(1.08)}
+  @media(max-width:860px){.pillnav a:not(.on):not(.cta):not(.home){display:none}.brand .b1{display:none}}@media(max-width:560px){.brand .b2{display:none}.pillnav a.home{padding:8px 10px}}
   /* HERO — black, centred, oversized name */
   .hero{position:relative;text-align:center;padding:150px 22px 0;overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 42% at 50% 30%,rgba(233,169,10,.07),transparent 70%);pointer-events:none}
@@ -336,7 +336,7 @@
 <div class="topbar">
   <a class="brand" href="#top"><span class="brand-mark">HC</span><span class="div"></span><span><small class="b1">SENIOR QA · AUTOMATION</small><small class="b2">Testing at Perficient</small></span></a>
   <nav class="pillnav" aria-label="Sections">
-    <a class="on" href="#top">Home</a><a href="#about">About</a><a href="#achievements">Achievements</a><a href="#credentials">Certifications</a><a href="#projects">Projects</a><a href="#capstone">Capstone Projects</a><a href="#experience">Experience</a>
+    <a class="home" href="https://hariteja-chintakunta.github.io/">← Landing Page</a><a class="on" href="#top">Home</a><a href="#about">About</a><a href="#achievements">Achievements</a><a href="#credentials">Certifications</a><a href="#projects">Projects</a><a href="#capstone">Capstone Projects</a><a href="#experience">Experience</a>
     <a class="cta" href="https://github.com/Hariteja-Chintakunta" target="_blank" rel="noopener">GitHub ↗</a>
   </nav>
 </div>
