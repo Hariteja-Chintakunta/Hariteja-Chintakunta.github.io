@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:,">
+<title>Hariteja Chintakunta — GitHub Portfolio | Senior QA Automation Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#060607; --bg2:#0b0b0d; --surface:#121215; --surface2:#1a1a1f; --ink:#f4f4f1; --muted:#a3a7b0; --faint:#6d7079;
+    --line:#26262c; --line2:#33333b;
+    --gold:#e9a90a; --gold-ink:#161006; --gold-soft:#241c09;
+    --pass:#3ec79f; --pass-bg:#0f2a22;
+    --red:#e5322d;
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Public Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  button,[role="button"],select,summary{min-height:2.25rem}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .serif-i{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0;text-transform:none}
+  h1,h2,h3{font-family:"Archivo",sans-serif;line-height:1.05;letter-spacing:-.02em;margin:0}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+  /* FLOATING PILL NAV — like the reference */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:14px 18px;pointer-events:none}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;pointer-events:auto;padding-top:4px}
+  .brand-mark{font-family:"Archivo",sans-serif;font-weight:900;font-size:15px;letter-spacing:.02em}
+  .brand .div{width:1px;height:26px;background:var(--line2)}
+  .brand small{display:block;line-height:1.35}
+  .brand .b1{font-size:10px;letter-spacing:.22em;font-weight:700;color:var(--muted)}
+  .brand .b2{font-size:11px;color:var(--pass);font-weight:600}
+  .brand .b2::before{content:"●";margin-right:5px;font-size:8px;vertical-align:2px}
+  .pillnav{pointer-events:auto;display:flex;align-items:center;gap:2px;background:rgba(24,24,28,.82);backdrop-filter:blur(14px);border:1px solid var(--line2);border-radius:999px;padding:5px}
+  .pillnav a{text-decoration:none;font-size:13.5px;font-weight:600;color:var(--muted);padding:8px 15px;border-radius:999px;white-space:nowrap}
+  .pillnav a:hover{color:var(--ink)}
+  .pillnav a.on{background:#f4f4f1;color:#0a0a0b}
+  .pillnav a.cta{background:#f4f4f1;color:#0a0a0b;font-weight:700}
+  @media(max-width:860px){.pillnav a:not(.on):not(.cta){display:none}.brand .b1{display:none}}
+  /* HERO — black, centred, oversized name */
+  .hero{position:relative;text-align:center;padding:150px 22px 0;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 42% at 50% 30%,rgba(233,169,10,.07),transparent 70%);pointer-events:none}
+  .hero .k{font-size:12px;letter-spacing:.34em;font-weight:600;color:var(--muted);text-transform:uppercase}
+  .hero h1{font-size:clamp(58px,12.5vw,168px);font-weight:900;line-height:.92;letter-spacing:-.03em;margin:22px 0 0;text-transform:uppercase}
+  .hero h1 .hollow{display:block;color:transparent;-webkit-text-stroke:2px #4a4a52;font-size:.62em;letter-spacing:.01em}
+  .hero-tag{font-family:"Archivo",sans-serif;font-size:clamp(26px,4.4vw,52px);font-weight:700;line-height:1.15;margin:26px auto 0;max-width:20ch}
+  .hero-tag .serif-i{color:#b9bcc4;font-size:1.06em}
+  .hero-lead{color:var(--muted);font-size:16.5px;max-width:62ch;margin:20px auto 0}
+  .hero-lead strong{color:var(--ink)}
+  .role-line{font-family:"JetBrains Mono",monospace;font-size:13.5px;color:var(--gold);margin-top:22px;min-height:1.5em;letter-spacing:.06em}
+  .caret{display:inline-block;width:8px;height:1em;background:var(--gold);vertical-align:-2px;margin-left:3px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:14px;padding:12px 20px;border-radius:999px;border:1px solid transparent;cursor:pointer;font-family:inherit}
+  .btn-white{background:#f4f4f1;color:#0a0a0b}
+  .btn-white:hover{background:#fff}
+  .btn-gold{background:var(--gold);color:var(--gold-ink)}
+  .btn-gold:hover{background:#f5bc2e}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
+  .btn-ghost:hover{border-color:#6a6a74}
+  .btn-line{background:var(--surface2);color:var(--ink);border-color:var(--line)}
+  .hero-foot{display:flex;justify-content:space-between;gap:16px;max-width:1200px;margin:64px auto 0;padding:0 0 22px;font-size:11px;letter-spacing:.2em;font-weight:700;color:var(--muted);text-transform:uppercase;text-align:left}
+  .hero-foot .r{text-align:right;color:var(--faint)}
+  .hero-foot .r b{color:var(--muted);display:block}
+  @media(max-width:640px){.hero-foot .r{display:none}}
+  .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);max-width:1200px;margin:0 auto;text-align:left}
+  @media(max-width:700px){.hero-stats{grid-template-columns:1fr 1fr}}
+  .hstat{padding:22px 18px 26px;border-left:1px solid var(--line)}
+  .hstat:first-child{border-left:none;padding-left:0}
+  @media(max-width:700px){.hstat{padding-left:14px}.hstat:nth-child(odd){border-left:none;padding-left:0}}
+  .hstat b{font-family:"Archivo",sans-serif;font-size:32px;display:block;line-height:1}
+  .hstat b em{font-style:normal;color:var(--gold)}
+  .hstat span{font-size:12.5px;color:var(--faint);font-weight:600}
+  /* MARQUEE RIBBONS — the reference's angled strips */
+  .ribbons{position:relative;padding:58px 0 30px;overflow:hidden}
+  .ribbon{white-space:nowrap;overflow:hidden;display:flex}
+  .ribbon .track{display:inline-flex;gap:0;animation:scrollx 30s linear infinite;will-change:transform}
+  .ribbon span{font-family:"Archivo",sans-serif;font-weight:800;font-size:15px;letter-spacing:.14em;padding:12px 0}
+  .ribbon span::after{content:"✦";margin:0 22px;opacity:.65}
+  .ribbon.gold{background:var(--gold);color:var(--gold-ink);transform:rotate(-2.2deg) scale(1.03)}
+  .ribbon.dark{background:#17171b;color:#8f929c;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);transform:rotate(1.4deg) scale(1.03);margin-top:-8px}
+  @keyframes scrollx{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){.ribbon .track{animation:none}.caret{animation:none}html{scroll-behavior:auto}}
+  /* BENTO INTRO — three dark cards, like the reference */
+  .bento{display:grid;grid-template-columns:.85fr 1.5fr .85fr;gap:14px;padding:34px 0 8px}
+  @media(max-width:920px){.bento{grid-template-columns:1fr}}
+  .bcard{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;display:flex;flex-direction:column;min-height:300px}
+  .bcard .bk{font-size:11px;letter-spacing:.22em;color:var(--faint);font-weight:700;text-transform:uppercase;display:flex;justify-content:space-between;gap:10px}
+  .bcard h3{font-size:clamp(24px,2.6vw,32px);font-weight:800;margin:16px 0 10px;line-height:1.12}
+  .bcard h3 .serif-i{color:#b9bcc4}
+  .bcard p{color:var(--muted);font-size:14.5px;margin:0}
+  .bcard .foot{margin-top:auto;padding-top:20px}
+  .who-name{font-family:"Archivo",sans-serif;font-size:26px;font-weight:800}
+  .who-name .serif-i{color:#b9bcc4}
+  .socials{display:flex;gap:16px}
+  .socials a{color:var(--muted);text-decoration:none;font-weight:700;font-size:13px;border:1px solid var(--line2);padding:8px 14px;border-radius:999px}
+  .socials a:hover{color:var(--ink);border-color:#6a6a74}
+  .mini-tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 4px}
+  .mini-tags span{font-size:12px;font-weight:600;border:1px solid var(--line2);color:var(--muted);padding:5px 11px;border-radius:999px}
+  .mini-tags span.hot{border-color:var(--gold);color:var(--gold)}
+  /* test report inside bento */
+  .rep-rows{margin-top:14px}
+  .rrow{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line2);font-size:13.5px;color:var(--muted)}
+  .rrow:last-of-type{border-bottom:none}
+  .rrow b{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink);white-space:nowrap}
+  .rbar{height:7px;background:var(--surface2);border-radius:99px;overflow:hidden;margin:12px 0 5px}
+  .rbar i{display:block;height:100%;width:98.5%;background:var(--pass)}
+  .rep-note{font-size:12.5px;color:#d8b34a;background:var(--gold-soft);border:1px solid #3d2f0d;border-radius:10px;padding:10px 12px;margin-top:12px;line-height:1.5}
+  /* sections */
+  section.blk{padding:76px 0}
+  section.blk.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:34px}
+  .sec-head.center{text-align:center}
+  .sec-head .k{font-size:11.5px;font-weight:700;letter-spacing:.3em;color:var(--faint);text-transform:uppercase}
+  .sec-head h2{font-size:clamp(34px,5.6vw,64px);font-weight:900;text-transform:uppercase;margin:12px 0 12px;line-height:1}
+  .sec-head h2 .dim{color:#71737d}
+  .sec-head h2 .serif-i{color:#b9bcc4;font-size:1.02em}
+  .sec-head p{color:var(--muted);margin:0 auto;font-size:15.5px;max-width:64ch}
+  .sec-head:not(.center) p{margin:0}
+  .grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:38px}
+  @media(max-width:860px){.grid2{grid-template-columns:1fr}}
+  .prose p{color:var(--muted);margin:0 0 14px;font-size:15.5px}
+  .prose p strong{color:var(--ink)}
+  .big-line{font-family:"Archivo",sans-serif;font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.18;margin:0 0 20px}
+  .big-line .serif-i{color:#b9bcc4}
+  .factbox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:6px 22px}
+  .fact{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .fact:last-child{border-bottom:none}
+  .fact dt{color:var(--muted);font-weight:600}
+  .fact dd{margin:0;font-weight:700;text-align:right}
+  .checks{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:11px}
+  .checks li{display:flex;gap:10px;font-size:14.5px;color:var(--muted)}
+  .checks li b{color:var(--ink)}
+  .tick{flex:none;width:22px;height:22px;border-radius:50%;background:var(--pass-bg);color:var(--pass);display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:1px}
+  .gh-badge{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;letter-spacing:.14em;color:var(--ink);background:var(--surface2);border:1px solid var(--line2);border-radius:999px;padding:8px 15px;margin-bottom:18px;text-transform:uppercase}
+  .gh-badge i{width:8px;height:8px;border-radius:50%;background:var(--pass);flex:none}
+  .cert-strip{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px;align-items:center}
+  .cert-strip .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--faint);text-transform:uppercase;margin-right:2px}
+  .cert-strip span{font-size:13px;font-weight:700;border:1px solid #4a3a10;background:var(--gold-soft);color:#e5bc45;padding:8px 14px;border-radius:999px}
+  .cert-strip a{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;border:1px solid var(--line2);padding:8px 14px;border-radius:999px}
+  .cert-strip a:hover{color:var(--ink);border-color:#6a6a74}
+  .cred.feat{border-color:#4a3a10;background:linear-gradient(160deg,#221a05,#121215 68%)}
+  .cred .issuer{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+  /* ACHIEVEMENTS */
+  .ach-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:14px}
+  @media(max-width:1020px){.ach-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.ach-grid{grid-template-columns:1fr}}
+  .ach{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;min-height:230px}
+  .ach.hero-ach{background:linear-gradient(160deg,#221a05,#121215 62%);border-color:#4a3a10}
+  .ach .badge{align-self:flex-start;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.1em;padding:6px 11px;border-radius:999px;background:var(--gold);color:var(--gold-ink)}
+  .ach .badge.rep{background:var(--surface2);color:var(--muted);border:1px solid var(--line2)}
+  .ach h3{font-size:24px;margin:16px 0 8px}
+  .ach.hero-ach h3{font-size:30px}
+  .ach p{color:var(--muted);font-size:14.5px;margin:0}
+  .ach .org{margin-top:auto;padding-top:18px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--faint);letter-spacing:.06em}
+  .ach-ico{width:44px;height:44px;border-radius:12px;background:var(--surface2);border:1px solid var(--line2);display:grid;place-items:center;color:var(--gold)}
+  .ach-ico svg{width:22px;height:22px}
+  /* skillset — grid backdrop + chips, like the reference */
+  .skillset{position:relative;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;background-position:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .skillset .veil{background:radial-gradient(ellipse 75% 90% at 50% 50%,rgba(6,6,7,.25),var(--bg) 92%);padding:76px 0}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;max-width:820px;margin:8px auto 0}
+  .chip{font-size:14px;font-weight:600;background:rgba(18,18,21,.92);border:1px solid var(--line2);color:#cfd1d8;padding:10px 18px;border-radius:12px}
+  .chip b{color:var(--gold);font-weight:700;margin-right:7px;font-family:"JetBrains Mono",monospace;font-size:11px}
+  /* expertise cards */
+  .exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:44px;text-align:left}
+  @media(max-width:760px){.exp-grid{grid-template-columns:1fr}}
+  .exp-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+  .exp-card h3{font-size:17px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;text-transform:none;letter-spacing:-.01em}
+  .lvl{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--pass);background:var(--pass-bg);padding:4px 9px;border-radius:999px;white-space:nowrap}
+  .exp-card p{color:var(--muted);font-size:14px;margin:8px 0 14px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-size:12.5px;font-weight:600;background:var(--surface2);border:1px solid var(--line);color:#cfd1d8;padding:5px 11px;border-radius:999px}
+  /* timeline */
+  .tl{position:relative;margin-left:8px;padding-left:30px;border-left:2px solid var(--line)}
+  .job{position:relative;padding:0 0 32px}
+  .job:last-child{padding-bottom:4px}
+  .job::before{content:"";position:absolute;left:-39px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--gold)}
+  .alt .job::before{background:var(--bg2)}
+  .job .when{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.05em}
+  .job h3{font-size:20px;margin:4px 0 2px}
+  .job .co{font-weight:700;color:var(--muted);font-size:14px}
+  .job p{color:var(--muted);font-size:14.5px;margin:8px 0 0;max-width:72ch}
+  .job p strong{color:var(--ink)}
+  .job ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+  .job ul li{margin:3px 0}
+  .job ul strong{color:var(--ink)}
+  /* projects */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .fbtn{border:1px solid var(--line2);background:var(--surface);color:var(--muted);font-weight:700;font-size:13.5px;padding:9px 17px;border-radius:999px;cursor:pointer;font-family:inherit}
+  .fbtn[aria-pressed="true"]{background:#f4f4f1;color:#0a0a0b;border-color:#f4f4f1}
+  .proj{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;margin-bottom:16px}
+  .proj-top{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:flex-start}
+  .proj h3{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;font-size:30px;letter-spacing:0}
+  .proj h3 a{text-decoration:none}
+  .proj h3 a:hover{text-decoration:underline}
+  .proj .sub{color:var(--muted);font-weight:600;font-size:14px;margin-top:4px}
+  .verdict{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:var(--pass-bg);color:var(--pass);white-space:nowrap}
+  .verdict.warn{background:var(--gold-soft);color:#e5bc45}
+  .proj-desc{color:var(--muted);font-size:15px;max-width:80ch;margin:12px 0 0}
+  .proj-desc strong{color:var(--ink)}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+  @media(max-width:760px){.metrics{grid-template-columns:1fr 1fr}}
+  .metric{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:13px 15px}
+  .metric b{font-family:"Archivo",sans-serif;font-size:23px;display:block;line-height:1.1}
+  .metric span{font-size:12px;color:var(--faint);font-weight:600}
+  .breakdown{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;margin:0 0 16px}
+  @media(max-width:760px){.breakdown{grid-template-columns:1fr}}
+  .breakdown div{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;color:var(--muted);padding:7px 0;border-bottom:1px dashed var(--line)}
+  .breakdown b{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink)}
+  .cmd{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}
+  .cmd code{flex:1;min-width:220px;background:#0a0a0c;color:#9fe8cf;font-family:"JetBrains Mono",monospace;font-size:13px;padding:12px 15px;border-radius:12px;border:1px solid var(--line);display:flex;align-items:center;overflow-x:auto;white-space:nowrap}
+  .copybtn{background:var(--surface2);border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:13px;padding:10px 15px;border-radius:999px;cursor:pointer;font-family:inherit}
+  .honest{font-size:13px;color:#e5bc45;background:var(--gold-soft);border:1px solid #3d2f0d;border-radius:12px;padding:11px 13px;margin-top:14px;line-height:1.55}
+  .cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:860px){.cmp{grid-template-columns:1fr}}
+  .cmp-card{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--surface)}
+  .cmp-card h3{font-size:16px;margin-bottom:12px}
+  .cmp-card dl{margin:0}
+  .cmp-card .fact{padding:8px 0;font-size:13.5px}
+  /* principles */
+  .prin{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:960px){.prin{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.prin{grid-template-columns:1fr}}
+  .prin-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+  .prin-card .n{font-family:"JetBrains Mono",monospace;color:var(--gold);font-weight:700;font-size:12px}
+  .prin-card h3{font-size:16px;margin:6px 0}
+  .prin-card p{color:var(--muted);font-size:13.5px;margin:0}
+  /* creds */
+  .creds{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:860px){.creds{grid-template-columns:1fr}}
+  .cred{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+  .cred h3{font-size:17px;margin-bottom:6px}
+  .cred p{color:var(--muted);font-size:14px;margin:0}
+  .cred .big{font-family:"Archivo",sans-serif;font-size:32px;font-weight:900}
+  .cred .cert-date{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin:0 0 8px}
+  /* summary + contact */
+  .pitch{background:#101013;border:1px solid var(--line2);border-radius:22px;padding:30px}
+  .pitch h3{font-size:21px;margin-bottom:10px}
+  .pitch h3 .serif-i{color:#b9bcc4}
+  .pitch p{font-size:16px;line-height:1.75;margin:0 0 18px;max-width:84ch;color:var(--muted)}
+  .pitch p strong{color:var(--ink)}
+  .contact h2{font-size:clamp(34px,5.4vw,62px);font-weight:900;text-transform:uppercase;line-height:1.02;max-width:16ch}
+  .contact h2 .serif-i{color:#b9bcc4}
+  .contact p{color:var(--muted);max-width:58ch}
+  footer{border-top:1px solid var(--line);padding:26px 0 0;color:var(--muted);font-size:13px;overflow:hidden}
+  footer .frow{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-bottom:22px}
+  .giant{font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(52px,11.5vw,150px);line-height:.85;text-align:center;color:transparent;-webkit-text-stroke:1.5px #2c2c33;text-transform:uppercase;letter-spacing:-.02em;user-select:none;padding-bottom:10px}
+  .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#f4f4f1;color:#0a0a0b;font-weight:700;font-size:13.5px;padding:11px 19px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:60;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- FLOATING NAV -->
+<div class="topbar">
+  <a class="brand" href="#top"><span class="brand-mark">HC</span><span class="div"></span><span><small class="b1">SENIOR QA · AUTOMATION</small><small class="b2">Testing at Perficient</small></span></a>
+  <nav class="pillnav" aria-label="Sections">
+    <a class="on" href="#top">Home</a><a href="#about">About</a><a href="#achievements">Achievements</a><a href="#credentials">Certifications</a><a href="#projects">Projects</a><a href="#experience">Experience</a>
+    <a class="cta" href="https://github.com/Hariteja-Chintakunta" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div><span class="gh-badge"><i aria-hidden="true"></i>GitHub Portfolio · github.com/Hariteja-Chintakunta</span></div>
+  <div class="k">Senior Technical Consultant — Perficient India</div>
+  <h1>Hariteja<span class="hollow">Chintakunta</span></h1>
+  <p class="hero-tag">Finding the bugs that <span class="serif-i">matter</span> — before users do.</p>
+  <p class="hero-lead">Senior Technical Consultant at <strong>Perficient India</strong> with <strong>12 years in QA</strong> — 9+ of them in PEGA testing across healthcare, insurance, banking and automotive finance. Right now I test a <strong>Healthfirst migration of 18 applications from AWS to PEGA Cloud, with 8 go-lives in 4 months</strong> — and I build the automation that proves it works: Playwright, Selenium and REST Assured frameworks you can clone and run.</p>
+  <div class="role-line" aria-label="Specialisms"><span id="typer">PEGA Testing</span><span class="caret" aria-hidden="true"></span></div>
+  <div class="hero-actions">
+    <a class="btn btn-white" href="#projects">See the frameworks ↓</a>
+    <a class="btn btn-ghost" href="#achievements">Achievements</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/chintakunta-hariteja/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <button class="btn btn-ghost" id="copyEmailTop" type="button">Copy email</button>
+  </div>
+  <div class="hero-foot">
+    <span>Based in Hyderabad, India</span>
+    <span class="r"><b>PEGA · Appian · Automation</b>Senior QA Engineer</span>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><b>12<em> yrs</em></b><span>Total QA experience</span></div>
+    <div class="hstat"><b>18<em> apps</em></b><span>Healthfirst AWS → PEGA Cloud</span></div>
+    <div class="hstat"><b>8<em> go-lives</em></b><span>Delivered in 4 months</span></div>
+    <div class="hstat"><b>8<em> testers</em></b><span>Largest team led (Trimont)</span></div>
+  </div>
+</header>
+
+<!-- MARQUEE RIBBONS -->
+<div class="ribbons" aria-hidden="true">
+  <div class="ribbon gold"><div class="track" id="trackGold"></div></div>
+  <div class="ribbon dark"><div class="track" id="trackDark"></div></div>
+</div>
+
+<!-- BENTO INTRO -->
+<div class="wrap">
+  <div class="bento">
+    <div class="bcard">
+      <div><div class="who-name">Hariteja <span class="serif-i">Chintakunta</span></div>
+      <p style="margin-top:6px">HYDERABAD, IN</p>
+      <p style="margin-top:14px">Twelve years testing workflow-heavy, regulated systems — claims, contracts, leasing, appraisals — where a missed rule costs real money.</p></div>
+      <div class="foot socials">
+        <a href="https://www.linkedin.com/in/chintakunta-hariteja/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/Hariteja-Chintakunta" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="bcard">
+      <div class="bk"><span>Detail-driven QA</span><span>Philosophy ✦</span></div>
+      <h3>Releases <span class="serif-i">you can trust.</span></h3>
+      <div class="mini-tags"><span class="hot">Evidence</span><span>Repeatability</span><span>Honest reports</span><span>No flaky tests</span></div>
+      <p>Every claim on this page is backed by something runnable — a framework, a test count taken from the code, a report. If a suite is a starter, it says so — and what it doesn’t do yet, it says that too.</p>
+      <div class="foot"><p class="mono" style="font-size:12.5px;color:var(--faint)">STRATEGY · EXECUTION · SIGN-OFF — AND THE CODE UNDERNEATH</p></div>
+    </div>
+    <div class="bcard">
+      <div class="bk"><span>Test report</span><span style="color:var(--pass)">● Evidence-based</span></div>
+      <div class="rep-rows">
+        <div class="rrow"><span>Tests defined · 3 repos</span><b>68</b></div>
+        <div class="rrow"><span>Tests that run</span><b>67 · 1 skipped</b></div>
+        <div class="rrow"><span>Spec &amp; test files</span><b>19</b></div>
+        <div class="rrow"><span>Page-object classes</span><b>18</b></div>
+      </div>
+      <div class="rbar" aria-hidden="true"><i></i></div>
+      <p class="mono" style="font-size:12px;color:var(--pass);font-weight:700;margin:0">67 / 68 executable — 98.5%</p>
+      <div class="rep-note"><b>Honest by design:</b> no planted failures — the Selenium login test was fixed to assert SauceDemo’s real “Products” title, so the suite is set up for a clean 46/46.</div>
+      <div class="foot"><a class="btn btn-gold" href="#projects" style="width:100%;justify-content:center">View frameworks ↗</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="blk" id="about">
+  <div class="wrap">
+    <div class="sec-head"><div class="k">A quick glance</div></div>
+    <div class="grid2">
+      <div>
+        <p class="big-line">Building the bridge between <span class="serif-i">code</span> and <span class="serif-i">confident releases.</span></p>
+        <div class="prose">
+          <p>I’m a <strong>Senior Technical Consultant (QA)</strong> based in Hyderabad, working hybrid at Perficient India since January 2026. My career runs from manual testing at Vodafone UK through PEGA testing for AIG, FedEx and Erste Bank, to leading QA teams of 8 — and for the last several years, building automation on top of that foundation.</p>
+          <p>At Maantic I moved across three very different domains without changing my method: <strong>Kornerstone</strong> (automotive finance — vehicle service contracts and claims), <strong>United Fleet Management</strong> (nationwide commercial vehicle leasing), and <strong>Trimont</strong>, where I led Appian testing for vendor-request and appraisal workflows in commercial real estate finance.</p>
+          <p>Today, on the Healthfirst programme, that method is applied at migration scale: <strong>18 applications moved from AWS to PEGA Cloud in 4 months, 8 go-lives</strong>. My automation work — Playwright with TypeScript, Selenium with Java, REST Assured for APIs — exists to make releases like that verifiable, repeatable and boring in the best way.</p>
+        </div>
+        <ul class="checks">
+          <li><span class="tick">✓</span><span><b>Lead and hands-on, both.</b> Test strategy, plans and sign-off — plus frameworks I built and can walk through line by line.</span></li>
+          <li><span class="tick">✓</span><span><b>Domain depth that transfers.</b> Claims, contracts, leasing, appraisals, strata — regulated, workflow-heavy systems.</span></li>
+          <li><span class="tick">✓</span><span><b>No inflated claims.</b> Where a framework is a starter, this page says so — and where one has limits, it names them plainly.</span></li>
+        </ul>
+      </div>
+      <div>
+        <dl class="factbox">
+          <div class="fact"><dt>Current role</dt><dd>Senior Technical Consultant, Perficient</dd></div>
+          <div class="fact"><dt>Current programme</dt><dd>Healthfirst — AWS → PEGA Cloud migration</dd></div>
+          <div class="fact"><dt>Location</dt><dd>Hyderabad · Hybrid</dd></div>
+          <div class="fact"><dt>Focus areas</dt><dd>PEGA &amp; Appian Testing · UI &amp; API Automation · Gen AI Testing</dd></div>
+          <div class="fact"><dt>Employers</dt><dd>Perficient · Maantic · Coforge · Capgemini · Virtusa</dd></div>
+          <div class="fact"><dt>Domains</dt><dd>Healthcare · Insurance · Banking · Automotive Finance · Real Estate · Telecom · Logistics</dd></div>
+          <div class="fact"><dt>Education</dt><dd>MTech, Embedded Systems (2012–2014)</dd></div>
+          <div class="fact"><dt>Certifications</dt><dd>Claude Certified · PEGA CSA · PEGA BA · ISTQB · CSM®</dd></div>
+          <div class="fact"><dt>GitHub Portfolio</dt><dd><a href="https://github.com/Hariteja-Chintakunta" target="_blank" rel="noopener">github.com/Hariteja-Chintakunta ↗</a></dd></div>
+          <div class="fact"><dt>Email</dt><dd><a href="mailto:haritejac@hotmail.com">haritejac@hotmail.com</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="blk alt" id="achievements">
+  <div class="wrap">
+    <div class="sec-head"><div class="k">Achievements</div><h2>Bug hunting, <span class="serif-i">recognised.</span></h2><p>Beyond the day job: real defects found and reported in products millions of people use — including one that earned an award.</p></div>
+    <div class="ach-grid">
+      <article class="ach hero-ach">
+        <span class="badge">★ AWARDED</span>
+        <h3>Amazon Pay</h3>
+        <p>Awarded by Amazon Pay for reporting a bug to them — a defect found in a live payments product and acknowledged by the team behind it.</p>
+        <div class="org">AMAZON PAY · BUG REPORT · AWARD</div>
+      </article>
+      <article class="ach">
+        <div class="ach-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="13" rx="5" ry="7"/><path d="M12 6V3M8 8 5 5M16 8l3-3M7 13H3M21 13h-4M9 21l-2 2M15 21l2 2"/></svg></div>
+        <h3>BigBasket</h3>
+        <p>Bug reported in BigBasket — India’s online grocery platform, where a checkout or delivery defect reaches customers fast.</p>
+        <div class="org">BIGBASKET · BUG REPORTED</div>
+      </article>
+      <article class="ach">
+        <div class="ach-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="13" rx="5" ry="7"/><path d="M12 6V3M8 8 5 5M16 8l3-3M7 13H3M21 13h-4M9 21l-2 2M15 21l2 2"/></svg></div>
+        <h3>HDFC Bank</h3>
+        <p>Bug reported in HDFC Bank — defects in banking software carry real financial and trust consequences for customers.</p>
+        <div class="org">HDFC BANK · BUG REPORTED</div>
+      </article>
+      <article class="ach">
+        <div class="ach-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="13" rx="5" ry="7"/><path d="M12 6V3M8 8 5 5M16 8l3-3M7 13H3M21 13h-4M9 21l-2 2M15 21l2 2"/></svg></div>
+        <h3>ICICI Bank</h3>
+        <p>Bug reported in ICICI Bank — found and reported through careful, adversarial testing of a live banking product.</p>
+        <div class="org">ICICI BANK · BUG REPORTED</div>
+      </article>
+    </div>
+    <div class="cert-strip" aria-label="Certifications">
+      <span class="lbl">Certified in</span>
+      <span>Claude Certified</span>
+      <span>PEGA Certified CSA</span>
+      <span>PEGA Certified BA</span>
+      <span>ISTQB Certified</span>
+      <a href="#credentials">All certifications ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLSET + EXPERTISE -->
+<div class="skillset">
+  <div class="veil">
+    <div class="wrap">
+      <div class="sec-head center" style="margin-bottom:26px"><div class="k">My skillset</div><h2>The craft <span class="dim">behind</span></h2></div>
+      <div class="chips">
+        <span class="chip"><b>◆</b>PEGA 8.x</span><span class="chip"><b>◆</b>PEGA Cloud</span><span class="chip"><b>◆</b>Appian</span><span class="chip"><b>TS</b>TypeScript</span><span class="chip"><b>▶</b>Playwright</span><span class="chip"><b>◆</b>Selenium WebDriver</span><span class="chip"><b>J</b>Java</span><span class="chip"><b>◆</b>TestNG</span><span class="chip"><b>API</b>REST Assured</span><span class="chip"><b>◆</b>Page Object Model</span><span class="chip"><b>◆</b>axe-core</span><span class="chip"><b>CI</b>GitHub Actions</span><span class="chip"><b>◆</b>Jira</span><span class="chip"><b>◆</b>Azure DevOps</span><span class="chip"><b>AI</b>Gen AI Testing</span><span class="chip"><b>AI</b>Claude Certified</span><span class="chip"><b>◆</b>PEGA CSA</span><span class="chip"><b>◆</b>PEGA BA</span><span class="chip"><b>◆</b>ISTQB Certified</span>
+      </div>
+      <div class="exp-grid">
+        <article class="exp-card">
+          <h3>PEGA &amp; Appian Testing <span class="lvl">EXPERT · 9+ YRS</span></h3>
+          <p>The core of my career: case lifecycle, rules and workflow testing on large PEGA estates, Tracer and Clipboard debugging, and Appian process and records testing — including a team of 8 at Trimont and the 18-app Healthfirst migration.</p>
+          <div class="tags"><span class="tag">PEGA 8.x</span><span class="tag">PEGA Cloud</span><span class="tag">Appian</span><span class="tag">Tracer</span><span class="tag">Clipboard</span><span class="tag">Case Management</span><span class="tag">SharePoint integrations</span></div>
+        </article>
+        <article class="exp-card">
+          <h3>UI Automation <span class="lvl">HANDS-ON · BUILDING</span></h3>
+          <p>Two complete public frameworks: Playwright with TypeScript (page objects, custom fixtures, accessibility and visual checks, network mocking, 3 browsers) and Selenium with Java/TestNG (46 tests, parallel runs, retry logic, Extent + Allure reports).</p>
+          <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">Selenium WebDriver</span><span class="tag">Java</span><span class="tag">TestNG</span><span class="tag">Page Object Model</span><span class="tag">axe-core</span></div>
+        </article>
+        <article class="exp-card">
+          <h3>API Testing <span class="lvl">HANDS-ON</span></h3>
+          <p>REST Assured suites with chained, dependency-ordered tests, environment switching (QA/UAT), response-time budgets and Allure reporting — plus years of API testing inside PEGA programmes at AIG and beyond.</p>
+          <div class="tags"><span class="tag">REST Assured</span><span class="tag">Postman</span><span class="tag">JSON / Schema checks</span><span class="tag">Allure</span><span class="tag">Chained tests</span></div>
+        </article>
+        <article class="exp-card">
+          <h3>Test Leadership &amp; Delivery <span class="lvl">EXPERT</span></h3>
+          <p>Test strategy and planning, defect lifecycle, RTM, release sign-off and stakeholder reporting across Agile teams — with Jira, Azure DevOps and HP Quality Center depending on the client’s stack.</p>
+          <div class="tags"><span class="tag">Test Strategy</span><span class="tag">Team Leadership (8)</span><span class="tag">Jira</span><span class="tag">Azure DevOps</span><span class="tag">HP Quality Center</span><span class="tag">GitHub Actions CI</span><span class="tag">Agile / Scrum</span></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section class="blk" id="experience">
+  <div class="wrap">
+    <div class="sec-head"><div class="k">Experience</div><h2>12 years, <span class="dim">five employers</span></h2><p>One thread throughout: workflow-heavy systems, tested properly.</p></div>
+    <div class="tl">
+      <article class="job">
+        <div class="when">JAN 2026 — PRESENT</div>
+        <h3>Senior Technical Consultant</h3><div class="co">Perficient India · Hyderabad (Hybrid) — Healthfirst</div>
+        <p>QA on the Healthfirst PEGA migration: <strong>18 applications moved from AWS to PEGA Cloud in 4 months, with 8 go-lives</strong>. Testing case workflows and integrations across a large, regulated healthcare estate where release confidence has to be earned, not assumed.</p>
+      </article>
+      <article class="job">
+        <div class="when">AUG 2024 — DEC 2025</div>
+        <h3>Appian Test Lead — Trimont</h3><div class="co">Maantic Inc · Commercial Real Estate Finance</div>
+        <p>Led a <strong>QA team of 8</strong> testing Trimont’s VendReq and Appraisal Vendor Request applications on Appian, including SharePoint integrations. Owned test planning, execution and defect management across Azure DevOps and HP Quality Center.</p>
+      </article>
+      <article class="job">
+        <div class="when">JUN 2023 — JUL 2024</div>
+        <h3>Pega Test Lead — United Fleet Management</h3><div class="co">Maantic Inc · Commercial Vehicle Leasing</div>
+        <p>Test lead for UFM’s nationwide commercial vehicle leasing platform on the Kornerstone BlueSky stack — fleet, contract and customer workflows at national scale.</p>
+      </article>
+      <article class="job">
+        <div class="when">AUG 2022 — JUN 2023</div>
+        <h3>Pega Test Lead — Kornerstone (BlueSky)</h3><div class="co">Maantic Inc · Automotive Finance</div>
+        <p>Testing vehicle service contracts, claims processing and customer-retention workflows on the BlueSky platform — the kind of money-moving rules where boundary cases are the whole job.</p>
+      </article>
+      <article class="job">
+        <div class="when">MAY 2021 — JUL 2022</div>
+        <h3>Business Analyst &amp; PEGA QA Lead</h3><div class="co">Coforge · NSW Department (Strata Hub)</div>
+        <ul>
+          <li><strong>Strata Hub &amp; SIC Enhancements on PEGA 8.6</strong> — a platform serving <strong>83,000 strata schemes</strong>.</li>
+          <li>Dual BA / Test Lead role: requirements through to sign-off, leading a team of <strong>4 testers</strong>.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="when">SEP 2020 — MAY 2021</div>
+        <h3>Consultant, Pega Test Lead — Erste Bank</h3><div class="co">Capgemini · Germany · Banking</div>
+        <p>Test lead for a guarantee-processing application on PEGA 8.4 for Erste Bank — banking workflows with strict audit and accuracy requirements.</p>
+      </article>
+      <article class="job">
+        <div class="when">MAR 2014 — SEP 2020</div>
+        <h3>Associate Consultant → Senior QA Engineer</h3><div class="co">Virtusa · Vodafone · AIG · FedEx · Cotiviti</div>
+        <ul>
+          <li><strong>Vodafone (UK telecom)</strong> — manual testing, 3 years: where the fundamentals were built.</li>
+          <li><strong>AIG</strong> — PEGA tester on claims, with AWS, databases, Tracer/Clipboard and API testing.</li>
+          <li><strong>FedEx</strong> — PEGA testing for courier workflows. <strong>Cotiviti</strong> — Senior QA Engineer, healthcare, QTP/Selenium.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="blk alt" id="projects">
+  <div class="wrap">
+    <div class="sec-head"><div class="k">Crafting proven frameworks</div><h2>Framework <span class="serif-i">showcase</span></h2><p>Three frameworks, three stacks, one target each — public on GitHub. Clone any of them and run the command shown; the code is the evidence.</p></div>
+
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="fbtn" type="button" data-filter="all" aria-pressed="true">All three</button>
+      <button class="fbtn" type="button" data-filter="playwright" aria-pressed="false">Playwright · TypeScript</button>
+      <button class="fbtn" type="button" data-filter="selenium" aria-pressed="false">Selenium · Java</button>
+      <button class="fbtn" type="button" data-filter="api" aria-pressed="false">API · REST Assured</button>
+    </div>
+
+    <article class="proj" data-cat="playwright">
+      <div class="proj-top">
+        <div><h3><a href="https://github.com/Hariteja-Chintakunta/playwright-capstone" target="_blank" rel="noopener">playwright-capstone ↗</a></h3><div class="sub">Playwright + TypeScript · AutomationExercise · The flagship framework</div></div>
+        <span class="verdict">18 RUN · 1 SKIPPED · 0 HIDDEN</span>
+      </div>
+      <p class="proj-desc">A complete e-commerce framework: registration, login/logout, search and cart, checkout with invoice download, and contact-form upload — then the parts most portfolios skip: <strong>axe-core accessibility scans, visual-regression baselines, and 5 network-mocking tests</strong> that intercept, stub and throttle real requests. Custom fixtures inject 8 page objects into every test and <strong>block ad/tracking requests</strong>, because ad overlays on the demo site were causing flaky clicks — the fix is in the fixture, not in a sleep.</p>
+      <div class="metrics">
+        <div class="metric"><b>19</b><span>Tests defined</span></div>
+        <div class="metric"><b>10</b><span>Spec files</span></div>
+        <div class="metric"><b>9</b><span>Page classes</span></div>
+        <div class="metric"><b>3</b><span>Browsers</span></div>
+      </div>
+      <div class="breakdown">
+        <div><span>Core flows (register → order)</span><b>7 tests</b></div>
+        <div><span>Network mocking &amp; interception</span><b>5 tests</b></div>
+        <div><span>Accessibility (axe-core)</span><b>3 tests</b></div>
+        <div><span>Visual regression</span><b>3 + 1 skipped</b></div>
+        <div><span>Workers / parallelism</span><b>1 · shared-account carts</b></div>
+        <div><span>Retries · Trace</span><b>1 (2 on CI) · on-first-retry</b></div>
+      </div>
+      <div class="tags" style="margin-bottom:14px"><span class="tag">Playwright Test 1.48.0</span><span class="tag">TypeScript 7.0.2</span><span class="tag">axe-core 4.10.0</span><span class="tag">dotenv 16.4.5</span><span class="tag">GitHub Actions</span></div>
+      <div class="cmd"><code>npx playwright test</code><button class="copybtn" type="button" data-copy="npm ci && npx playwright test">Copy run command</button><a class="btn btn-line" href="https://github.com/Hariteja-Chintakunta/playwright-capstone" target="_blank" rel="noopener" style="padding:10px 17px">Open repo ↗</a></div>
+      <p style="font-size:13px;color:var(--muted);margin:10px 0 0">Runs 1 worker on purpose: tests share one account’s cart, so parallel workers would fight over it. That trade-off is documented in the repo’s FRAMEWORK_DECISIONS.md.</p>
+    </article>
+
+    <article class="proj" data-cat="selenium">
+      <div class="proj-top">
+        <div><h3><a href="https://github.com/Hariteja-Chintakunta/Selenium-Capstone" target="_blank" rel="noopener">Selenium-Capstone ↗</a></h3><div class="sub">Selenium + Java + TestNG · SauceDemo · The volume framework</div></div>
+        <span class="verdict">46 TESTS · ALL SET TO PASS</span>
+      </div>
+      <p class="proj-desc">A full SauceDemo suite built the enterprise way: <strong>46 tests across 8 classes, 62 hard assertions</strong>, page objects for every screen, retry-once logic, 3-thread parallel execution, screenshots on failure, and both Extent and Allure reports. Checkout alone carries 8 tests — because checkout is where e-commerce suites usually go thin.</p>
+      <div class="metrics">
+        <div class="metric"><b>46</b><span>Tests · 8 classes</span></div>
+        <div class="metric"><b>9</b><span>Page classes</span></div>
+        <div class="metric"><b>62</b><span>Assertions</span></div>
+        <div class="metric"><b>3</b><span>Parallel threads</span></div>
+      </div>
+      <div class="breakdown">
+        <div><span>Checkout</span><b>8 tests</b></div>
+        <div><span>Login · Listing · Cart</span><b>7 each</b></div>
+        <div><span>Product detail · Navigation</span><b>6 each</b></div>
+        <div><span>End-to-end · Setup check</span><b>4 · 1</b></div>
+        <div><span>Assertion style</span><b>All hard asserts</b></div>
+        <div><span>Reporting</span><b>Extent + Allure</b></div>
+      </div>
+      <div class="tags" style="margin-bottom:14px"><span class="tag">Java 11</span><span class="tag">Selenium 4.25</span><span class="tag">TestNG 7.10.2</span><span class="tag">Maven</span><span class="tag">Allure</span></div>
+      <div class="cmd"><code>mvn clean test</code><button class="copybtn" type="button" data-copy="mvn clean test">Copy run command</button><a class="btn btn-line" href="https://github.com/Hariteja-Chintakunta/Selenium-Capstone" target="_blank" rel="noopener" style="padding:10px 17px">Open repo ↗</a></div>
+      <div class="honest"><b>In sync with the code:</b> the repo README now says 46 tests — matching the code exactly. The login test <span class="mono">validLoginRedirectsToProductsPage</span> asserts SauceDemo’s real title, “Products” (it once expected “Dashboard” on purpose; that deliberate failure has been fixed). Expected result: <span class="mono">Tests run: 46, Failures: 0</span>.</div>
+    </article>
+
+    <article class="proj" data-cat="api">
+      <div class="proj-top">
+        <div><h3><a href="https://github.com/Hariteja-Chintakunta/restassured-capstone" target="_blank" rel="noopener">restassured-capstone ↗</a></h3><div class="sub">REST Assured + Java + TestNG · GoRest API · The API starter, honestly labelled</div></div>
+        <span class="verdict">3 TESTS · CHAINED</span>
+      </div>
+      <p class="proj-desc">A small, clean API suite with one idea done properly: <strong>chaining</strong>. Test 1 lists posts and saves the first post’s ID and title; test 2 fetches exactly that post and verifies the fields match; test 3 searches by the title’s first word and checks the original post is in the results. Environment switches with one flag — <span class="mono">-Denv=uat</span> — and every response is held to a 5-second budget.</p>
+      <div class="metrics">
+        <div class="metric"><b>3</b><span>Chained tests</span></div>
+        <div class="metric"><b>2</b><span>Environments (QA/UAT)</span></div>
+        <div class="metric"><b>5s</b><span>Max response time</span></div>
+        <div class="metric"><b>1</b><span>Test class, ordered</span></div>
+      </div>
+      <div class="breakdown">
+        <div><span>getPostList — 200, non-empty, &lt;5s</span><b>CRITICAL</b></div>
+        <div><span>getPostDetails — depends on test 1</span><b>CRITICAL</b></div>
+        <div><span>searchPost — depends on test 1</span><b>NORMAL</b></div>
+        <div><span>Reporting</span><b>Allure on every request</b></div>
+      </div>
+      <div class="tags" style="margin-bottom:14px"><span class="tag">Java 11</span><span class="tag">REST Assured 5.5.0</span><span class="tag">TestNG 7.10.2</span><span class="tag">Allure 2.25.0</span></div>
+      <div class="cmd"><code>mvn test</code><button class="copybtn" type="button" data-copy="mvn test">Copy run command</button><a class="btn btn-line" href="https://github.com/Hariteja-Chintakunta/restassured-capstone" target="_blank" rel="noopener" style="padding:10px 17px">Open repo ↗</a></div>
+      <div class="honest"><b>Known limitation, stated plainly:</b> this is a GET-only starter — no POST/PUT/DELETE and no auth yet. The repo now has a README documenting the suite, its chaining design and the run commands. It demonstrates chaining and environment design; it does not pretend to be a finished API framework.</div>
+    </article>
+
+    <h3 style="font-size:19px;margin:28px 0 14px">Side by side</h3>
+    <div class="cmp">
+      <div class="cmp-card"><h3>Playwright — depth</h3><dl>
+        <div class="fact"><dt>Best for</dt><dd>Modern UI + a11y + visual</dd></div>
+        <div class="fact"><dt>Signature move</dt><dd>Ad-blocking fixtures</dd></div>
+        <div class="fact"><dt>Run</dt><dd class="mono">npx playwright test</dd></div>
+      </dl></div>
+      <div class="cmp-card"><h3>Selenium — scale</h3><dl>
+        <div class="fact"><dt>Best for</dt><dd>Enterprise Java shops</dd></div>
+        <div class="fact"><dt>Signature move</dt><dd>Parallel + retry + dual reports</dd></div>
+        <div class="fact"><dt>Run</dt><dd class="mono">mvn clean test</dd></div>
+      </dl></div>
+      <div class="cmp-card"><h3>REST Assured — APIs</h3><dl>
+        <div class="fact"><dt>Best for</dt><dd>Contract &amp; chain checks</dd></div>
+        <div class="fact"><dt>Signature move</dt><dd>Data chained across tests</dd></div>
+        <div class="fact"><dt>Run</dt><dd class="mono">mvn test -Denv=uat</dd></div>
+      </dl></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW I WORK + CREDENTIALS -->
+<section class="blk" id="credentials">
+  <div class="wrap">
+    <div class="sec-head"><div class="k">How I work</div><h2>Rules a team <span class="dim">can rely on</span></h2></div>
+    <div class="prin">
+      <div class="prin-card"><div class="n">01</div><h3>One test, one job</h3><p>If a test checks three things, its failure tells you nothing. Each test owns one behaviour and one clear failure message.</p></div>
+      <div class="prin-card"><div class="n">02</div><h3>No sleeps, ever</h3><p>Flakiness is a bug in the test, not a reason to wait longer. Fix the cause — like the ad overlays — in the fixture.</p></div>
+      <div class="prin-card"><div class="n">03</div><h3>A failure must explain itself</h3><p>Traces, screenshots and reports on failure, every time — so a red build explains itself in minutes, not hours.</p></div>
+      <div class="prin-card"><div class="n">04</div><h3>Honest numbers</h3><p>Counts come from the code. Starters are called starters. A report earns trust when it says what it isn’t.</p></div>
+    </div>
+
+    <div style="height:40px"></div>
+    <div class="sec-head"><div class="k">Credentials</div><h2>Certifications &amp; <span class="dim">education</span></h2><p>Claude Certified, PEGA Certified CSA and BA, ISTQB Certified and Certified ScrumMaster® — alongside the MTech that started it.</p></div>
+    <div class="creds">
+      <div class="cred feat"><div class="issuer">AI · Gen AI Testing</div><div class="big">Claude</div><h3>Claude Certified</h3><div class="cert-date">Sep 2026</div><p>Claude Certified Architect – Foundations. Certified in Claude AI — applied to Gen AI testing and AI-assisted QA work across modern delivery teams.</p></div>
+      <div class="cred"><div class="issuer">PEGA · System Architect</div><div class="big">CSA</div><h3>PEGA Certified CSA</h3><div class="cert-date">Jan 2021</div><p>Pega Certified System Architect (CSA) 8.4 — certified in designing and building PEGA applications, case types and rules.</p></div>
+      <div class="cred"><div class="issuer">PEGA · Business Architect</div><div class="big">BA</div><h3>PEGA Certified BA</h3><div class="cert-date">Jan 2022</div><p>Certified Pega Business Architect (CPBA) — certified in shaping PEGA solutions with business teams: requirements, case design and outcomes.</p></div>
+      <div class="cred"><div class="issuer">Software Testing</div><div class="big">ISTQB</div><h3>ISTQB Certified</h3><div class="cert-date">Advanced · Feb 2016</div><p>ISTQB Advanced Level — Feb 2016 · Foundation Level — Aug 2013. International Software Testing Qualifications Board certification in software testing principles and practice.</p></div>
+      <div class="cred"><div class="issuer">Agile · Scrum</div><div class="big">CSM®</div><h3>Certified ScrumMaster®</h3><p>Issued Feb 2023 · Expires Feb 2027 · Credential ID 1734686. Agile delivery isn’t a buzzword on this profile — it’s certified and practised daily.</p></div>
+      <div class="cred"><div class="issuer">Education</div><div class="big">MTech</div><h3>Embedded Systems</h3><p>Postgraduate degree, 2012–2014 — the engineering foundation under twelve years of testing complex systems.</p></div>
+    </div>
+
+    <div style="height:40px"></div>
+    <div class="pitch">
+      <h3>My work, <span class="serif-i">in one paragraph</span></h3>
+      <p>“<strong>Playwright with TypeScript</strong> on AutomationExercise — 18 tests, page objects, accessibility and visual checks, network mocking, three browsers. <strong>Selenium with Java and TestNG</strong> on SauceDemo — 46 tests, retry and parallel runs, Extent and Allure reports. And a <strong>REST Assured</strong> API suite on GoRest — 3 chained tests with Allure reporting and environment switching. All three are <strong>public on GitHub</strong> — clone them and run the commands shown above.”</p>
+      <button class="btn btn-gold" type="button" id="copyPitch">Copy this summary</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="blk alt contact">
+  <div class="wrap">
+    <div class="k mono" style="font-size:11.5px;font-weight:700;letter-spacing:.3em;color:var(--faint)">CONTACT</div>
+    <h2 style="margin:12px 0 14px">Questions about the work? <span class="serif-i">Let’s talk.</span></h2>
+    <p>Happy to walk through the Healthfirst migration testing, any of the three frameworks, or how these numbers were counted. The fastest route to the evidence isn’t this page — it’s the three repos above. Run them, then reach out.</p>
+    <div class="hero-actions" style="margin-top:24px;justify-content:flex-start">
+      <a class="btn btn-white" href="mailto:haritejac@hotmail.com">Email — haritejac@hotmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/chintakunta-hariteja/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/Hariteja-Chintakunta" target="_blank" rel="noopener">GitHub ↗</a>
+      <button class="btn btn-ghost" type="button" id="copyEmail2">Copy email</button>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="frow">
+    <span>Hariteja Chintakunta — GitHub Portfolio · Senior Technical Consultant, Perficient India · Hyderabad</span>
+    <span>12 years finding bugs in other people’s software. Now I write the tests that find them automatically.</span>
+  </div>
+</div>
+<div class="giant" aria-hidden="true">Hariteja</div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+
+<script>
+(function(){
+  var EMAIL="haritejac@hotmail.com";
+  var toast=document.getElementById('toast'),tt;
+  function show(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},2200);}
+  function copyText(t,msg){
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){show(msg)},function(){fallback()});}
+    else{fallback();}
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');show(msg);}catch(e){show(t);}document.body.removeChild(ta);}
+  }
+  document.getElementById('copyEmailTop').addEventListener('click',function(){copyText(EMAIL,'Email copied — '+EMAIL);});
+  document.getElementById('copyEmail2').addEventListener('click',function(){copyText(EMAIL,'Email copied — '+EMAIL);});
+  document.getElementById('copyPitch').addEventListener('click',function(){
+    copyText('Playwright with TypeScript on AutomationExercise — 18 tests, page objects, accessibility and visual checks, network mocking, three browsers. Selenium with Java and TestNG on SauceDemo — 46 tests, retry and parallel runs, Extent and Allure reports. And a REST Assured API suite on GoRest — 3 chained tests with Allure reporting and environment switching. All three are public on GitHub — clone them and run the commands shown above.','Summary copied');
+  });
+  var cbs=document.querySelectorAll('[data-copy]');
+  for(var i=0;i<cbs.length;i++){cbs[i].addEventListener('click',function(){copyText(this.getAttribute('data-copy'),'Run command copied');});}
+
+  // project filter
+  var btns=document.querySelectorAll('.fbtn'), projs=document.querySelectorAll('.proj');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    var f=b.getAttribute('data-filter');
+    projs.forEach(function(p){p.style.display=(f==='all'||p.getAttribute('data-cat')===f)?'':'none';});
+  });});
+
+  // marquee ribbons — build duplicated tracks for a seamless loop
+  function fillTrack(id, words){
+    var el=document.getElementById(id); if(!el) return;
+    var half=words.map(function(w){return '<span>'+w+'</span>';}).join('');
+    el.innerHTML=half+half;
+  }
+  fillTrack('trackGold',['PEGA TESTING','APPIAN TESTING','PLAYWRIGHT','SELENIUM','REST ASSURED','GEN AI TESTING','TEST LEADERSHIP']);
+  fillTrack('trackDark',['18 APPS MIGRATED','8 GO-LIVES','68 TESTS DEFINED','TEAM OF 8 LED','12 YEARS QA','83,000 STRATA SCHEMES']);
+
+  // typing roles
+  var roles=['PEGA Testing — 9+ years','Appian Testing — Team Lead','Playwright · TypeScript','Selenium · Java · TestNG','REST Assured · API Testing','Gen AI Testing'];
+  var el=document.getElementById('typer');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced){
+    var ri=0, ci=roles[0].length, deleting=false;
+    (function tick(){
+      var word=roles[ri];
+      if(!deleting){
+        ci++;
+        if(ci>=word.length){ ci=word.length; deleting=true; el.textContent=word; setTimeout(tick,1700); return; }
+        el.textContent=word.slice(0,ci); setTimeout(tick,65);
+      }else{
+        ci--;
+        if(ci<=0){ ci=0; deleting=false; ri=(ri+1)%roles.length; el.textContent=roles[ri].slice(0,1); setTimeout(tick,350); return; }
+        el.textContent=word.slice(0,ci); setTimeout(tick,34);
+      }
+    })();
+  }
+})();
+</script>
+</body>
+</html>
